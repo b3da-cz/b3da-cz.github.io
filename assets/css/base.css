@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&subset=latin-ext');
+* {
+    font-family: 'Roboto Mono', monospace, Courier !important;
+    /*outline: 1px dotted red;*/
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+html { font-size: 62.5% }
+
+h1 { font-size: 2.5rem; margin: 0.75rem 0 }
+h2 { font-size: 2.2rem; margin: 0.75rem 0 }
+h3 { font-size: 1.8rem; margin: 0.75rem 0 }
+p { font-size: 1.6rem; margin: 0.5rem 0; line-height: 1.95em }
+ul li { font-size: 1.6rem; margin: 0.5rem 0; line-height: 1.7em }
+a { text-decoration: none; border-bottom: 0.3rem solid #333; color: #333; transition: all 300ms }
+a:visited { border-bottom: 0.3rem solid #dfdfdf }
+a:hover { border-bottom: 0.3rem solid #ff8800; color: #000 }
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+}
+.label { font-size: 1.6rem }
+
+.flex-container-space-between { display: flex; justify-content: space-between; align-items: center }
+.align-start { align-self: flex-start }
+.align-end { align-self: flex-end }
+
+.text-bigger { font-size: 1.6em }
+
+.margin { margin: 1rem }
+.margin-vertical { margin-top: 1rem; margin-bottom: 1rem }
+.margin-horizontal { margin-left: 1rem; margin-right: 1rem }
+.margin-left { margin-left: 1rem }
+.margin-right { margin-right: 1rem }
+.margin-top { margin-top: 1rem }
+.margin-bottom { margin-bottom: 1rem }
+
+.padding { padding: 1rem }
+.padding-vertical { padding-top: 1rem; padding-bottom: 1rem }
+.padding-horizontal { padding-left: 1rem; padding-right: 1rem }
+.padding-left { padding-left: 1rem }
+.padding-right { padding-right: 1rem }
+.padding-top { padding-top: 1rem }
+.padding-bottom { padding-bottom: 1rem }
+
+.color-secondary { color: #979B9E }
+.color-primary { color: #ff8800 }

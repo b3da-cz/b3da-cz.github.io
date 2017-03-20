@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>b3da-cz</title>
+  <link rel="stylesheet" href="../../assets/css/line-chart-example.css">
+</head>
+<body>
+<div class="app-container margin-horizontal">
+  <div class="flex-container-space-between">
+    <h1>line chart</h1>
+    <div>
+      <a href="https://github.com/b3da-cz/line-chart" class="text-bigger margin-right">github</a>
+      <a href="../../" class="text-bigger">back</a>
+    </div>
+  </div>
+  <h2>example</h2>
+  <div class="margin-bottom">
+    <div class="chart-header-row">
+      <div id="chart-type-label" class="label color-secondary margin-vertical">line and crosshair callback</div>
+      <div id="chart-event-result" class="label color-primary"></div>
+    </div>
+    <canvas id="chart" class="chart" width="1000" height="500"></canvas>
+  </div>
+  <h3><a href="#" id="chart-options-switch">switch options</a></h3>
+</div>
+
+<script src="../../assets/js/example-data.js"></script>
+<script src="http://cdn.rawgit.com/b3da-cz/line-chart/master/src/line-chart.js"></script>
+<script>
+  const chartOptions = {
+    lineWidth: 6,
+    lineShadow: false,
+    lineColor: '#979B9E',
+    fillEnabled: false,
+    crosshairColor: '#ff8800',
+    crosshairWidth: 2,
+    crosshairEnabled: true,
+    crosshairEventEnabled: true,
+    crosshairDashed: false,
+    tooltipEnabled: false,
+    startAnimationEnabled: true,
+    startAnimationSpeed: 30,
+  };
+  const chartOptions2 = {
+    lineWidth: 4,
+    fillEnabled: true,
+    crosshairWidth: 2,
+    crosshairEnabled: true,
+    crosshairDashed: true,
+    tooltipEnabled: true,
+    tooltipSize: 1.25,
+    startAnimationEnabled: true,
+    startAnimationSpeed: 10,
+  };
+  const canvas = document.getElementById('chart');
+  let isOptionsDefault = true;
+  const initChart = (options) => {
+    let chart = new LineChart(canvas, options, exampleChartData);
+    isOptionsDefault ? chart.listenForCrosshairUpdate(e => {
+      document.getElementById('chart-event-result').innerHTML = e.data && e.data.length > 0 ? ('<div class="color-secondary font-small">' + e.label + '</div><div>' + e.data + '</div>') : '';
+    }) : null;
+  }
+  document.getElementById('chart-options-switch').onclick = () => {
+    isOptionsDefault = !isOptionsDefault;
+    initChart(isOptionsDefault ? chartOptions : chartOptions2);
+    document.getElementById('chart-type-label').textContent = isOptionsDefault ? 'line and crosshair callback' : 'line and fill';
+  }
+
+  initChart(chartOptions);
+</script>
+</body>
+</html>
